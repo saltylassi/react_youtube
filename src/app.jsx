@@ -1,16 +1,16 @@
-import React, { Component } from "react";
-import VideoList from "./components/videoList";
+import React, { useEffect, useState } from "react";
+import VideoList from "./components/video_list/videoList";
 import axios from "axios";
+import "./reset.css";
 
 const api = process.env.REACT_APP_API_KEY;
 const URL = `https://www.googleapis.com/youtube/v3`;
 
-class App extends Component {
-    state = {
-        popular: null,
-    };
+const App = () => {
+    const [popular, setPopular] = useState([]);
+    const [loaded, setLoaded] = useState(false);
 
-    getPopularData = async () => {
+    const getPopularData = async () => {
         const {
             data: { items },
         } = await axios({
@@ -20,28 +20,25 @@ class App extends Component {
                 key: api,
                 part: "snippet",
                 chart: "mostPopular",
-                maxResult: "25",
+                maxResults: "25",
             },
         });
 
-        this.setState({
-            popular: items,
-        });
+        setPopular(items);
+        setLoaded(true);
     };
 
-    componentDidMount() {
-        this.getPopularData();
-    }
+    useEffect(() => {
+        getPopularData();
+    }, []);
 
-    render() {
-        const { popular } = this.state;
-
-        return (
-            <div>
-                <VideoList popular={popular} />
-            </div>
-        );
-    }
-}
+    return loaded ? (
+        <div>
+            <VideoList popular={popular} />
+        </div>
+    ) : (
+        <div></div>
+    );
+};
 
 export default App;

@@ -1,0 +1,35 @@
+.videoContainer {
+    box-shadow: 0.15rem 0.15rem rgba(161, 159, 159, 0.4);
+    border: 2px solid rgba(161, 159, 159, 0.4);
+
+    /* 상위는 flexBox, box-sizing: border-box; width:50%도 나쁘지않았음*/
+}
+
+.video {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.2s;
+    padding: 2rem 1rem;
+}
+.video:hover {
+    transform: scale(1.05);
+}
+.videoInfo {
+    display: flex;
+    flex-direction: column;
+    margin: 0 1rem;
+}
+
+.videoTitle {
+    margin: 0.2rem 0;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.channelTitle {
+    margin: 0.2rem 0;
+    font-weight: 600;
+    opacity: 0.8;
+}

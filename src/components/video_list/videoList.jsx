@@ -1,17 +1,16 @@
 import React from "react";
-import VideoItem from "./videoItem";
+import VideoItem from "../video_item/videoItem";
+import styles from "./videoList.module.css";
 
 const VideoList = (props) => {
     const { popular } = props;
-    // console.log(popular);
-    // console.log(typeof popular);
     return (
-        <div>
+        <ul className={styles.videoList}>
             {popular &&
                 popular.map((item) => {
                     return <VideoItem key={item.id} item={item} />;
                 })}
-        </div>
+        </ul>
     );
 };
 
