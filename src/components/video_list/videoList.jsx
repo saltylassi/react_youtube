@@ -8,7 +8,7 @@ const VideoList = (props) => {
         <ul className={styles.videoList}>
             {popular &&
                 popular.map((item) => {
-                    return <VideoItem key={item.id} item={item} />;
+                    return <VideoItem key={item.etag} item={item} />;
                 })}
         </ul>
     );
