@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useRef } from "react";
 import styles from "./searchHeader.module.css";
 
-const SearchHeader = ({ setVideos }) => {
+const SearchHeader = ({ setVideos, search }) => {
     const inputRef = useRef();
 
     const api = process.env.REACT_APP_API_KEY;
@@ -11,20 +11,22 @@ const SearchHeader = ({ setVideos }) => {
     const handleSearch = async (event) => {
         event.preventDefault();
 
-        const {
-            data: { items: videos },
-        } = await axios({
-            method: "get",
-            url: `${URL}/search`,
-            params: {
-                key: api,
-                part: "snippet",
-                maxResults: "25",
-                q: inputRef.current.value,
-            },
-        });
+        // const {
+        //     data: { items: videos },
+        // } = await axios({
+        //     method: "get",
+        //     url: `${URL}/search`,
+        //     params: {
+        //         key: api,
+        //         part: "snippet",
+        //         maxResults: "25",
+        //         q: inputRef.current.value,
+        //     },
+        // });
 
-        setVideos(videos);
+        // setVideos(videos);
+
+        search(inputRef.current.value);
 
         inputRef.current.value = "";
     };
@@ -46,8 +48,9 @@ const SearchHeader = ({ setVideos }) => {
                     ref={inputRef}
                     className={styles.searchInput}
                     placeholder="search"
+                    type="search"
                 ></input>
-                <button className={styles.searchBtn}>
+                <button type="submit" className={styles.searchBtn}>
                     <img className={styles.btnImg} src="/images/search.png" />
                 </button>
             </form>

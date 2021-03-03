@@ -1,13 +1,10 @@
 .container {
-    width: 100vw;
-    height: 3.5rem;
-    position: fixed;
-    background-color: black;
-    margin-top: 0;
+    width: inherit;
     display: flex;
-    flex-direction: row;
-    align-items: center;
+    height: 3.5rem;
     padding: 0.3rem 1rem;
+    background-color: black;
+    align-items: center;
 }
 
 .link {
@@ -18,7 +15,7 @@
     display: flex;
     align-items: center;
     justify-content: space-around;
-    padding-right: 1rem;
+    margin-right: 1em;
 }
 
 .logo {
@@ -34,14 +31,15 @@
 }
 
 .searchForm {
-    width: 100%;
     display: flex;
-    box-sizing: border-box;
+    flex-basis: 100%;
     margin: 0 1rem;
 }
 
 .searchInput {
-    width: 95%;
+    width: 100%;
+    font-size: 1.2rem;
+    outline: none;
 }
 
 .searchBtn {
