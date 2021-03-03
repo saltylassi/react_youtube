@@ -14,3 +14,9 @@
 .videoList {
     flex: 1 1 30%;
 }
+
+@media screen and (max-width: 70rem) {
+    .videoContainer {
+        flex-direction: column;
+    }
+}

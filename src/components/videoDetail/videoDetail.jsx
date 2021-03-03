@@ -11,6 +11,7 @@ const VideoDetail = ({
         <div className={styles.container}>
             <iframe
                 className={styles.video}
+                title="videoPlayer"
                 id="ytplayer"
                 type="text/html"
                 src={`https://www.youtube.com/embed/${id}`}
