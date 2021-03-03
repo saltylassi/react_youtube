@@ -13,23 +13,24 @@ const VideoItem = (props) => {
                 },
             },
         },
+        handleVideoSelect,
+        item,
     } = props;
 
+    const onSelect = () => {
+        handleVideoSelect(item);
+    };
+
     return (
-        <li className={styles.videoContainer}>
+        <li className={styles.videoContainer} onClick={onSelect}>
             <div className={styles.video}>
-                <a
-                    className={styles.link}
-                    href={`https://youtube.com/watch?v=${id}`}
-                >
-                    <img
-                        className={styles.thumbnail}
-                        src={url}
-                        width={width}
-                        height={height}
-                        alt="videoThumbnail"
-                    />
-                </a>
+                <img
+                    className={styles.thumbnail}
+                    src={url}
+                    width={width}
+                    height={height}
+                    alt="videoThumbnail"
+                />
                 <div className={styles.videoInfo}>
                     <span className={styles.videoTitle}>{title}</span>
                     <span className={styles.channelTitle}>{channelTitle}</span>

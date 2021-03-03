@@ -1,4 +1,16 @@
 .app {
     max-width: 80rem;
-    min-width: 20rem;
+}
+
+.videoContainer {
+    display: flex;
+    padding: 1rem 0;
+}
+
+.videoDetail {
+    flex: 1 1 70%;
+}
+
+.videoList {
+    flex: 1 1 30%;
 }
